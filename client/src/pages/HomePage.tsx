@@ -15,6 +15,9 @@ const HomePage = (): JSX.Element => {
   return (
     <DefaultLayout>
       <h1>Home</h1>
+      <h2>Host Game</h2>
+      <button onClick={() => navigate('/host')}>Host</button>
+      <h2>Join Game</h2>
       <p>Enter Game Code:</p>
       <form onSubmit={onSubmit}>
         <input type="text" />
