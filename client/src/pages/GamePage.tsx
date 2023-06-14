@@ -1,22 +1,44 @@
 import DefaultLayout from '../layouts/DefaultLayout';
 import Card from '../components/elements/Card';
 
+import { CardType } from '../typings/card';
+
 const GamePage = (): JSX.Element => (
   <DefaultLayout>
     <h1>Game</h1>
-    {Array.from({ length: 4 }, (_, typeIndex) => (
-      <div
-        key={typeIndex}
-        className="row"
-        style={{
-          display: 'flex',
-        }}
-      >
-        {Array.from({ length: 13 }, (_, cardIndex) => (
-          <Card key={cardIndex} type={typeIndex} value={cardIndex + 1} />
-        ))}
-      </div>
-    ))}
+    <p>Current Turn: You</p>
+    <h2>Enemy Cards</h2>
+    <div
+      style={{
+        display: 'flex',
+      }}
+    >
+      <Card type={CardType.LEAVES} value={7} hidden />
+      <Card type={CardType.LEAVES} value={12} hidden />
+      <Card type={CardType.HEARTS} value={1} hidden />
+      <Card type={CardType.BELLS} value={3} hidden />
+    </div>
+    <h2>Deck</h2>
+    <div
+      style={{
+        display: 'flex',
+      }}
+    >
+      <Card type={CardType.HEARTS} value={9} hidden />
+      <Card type={CardType.BELLS} value={12} />
+      <button>Take a card</button>
+    </div>
+    <h2>Your Cards</h2>
+    <div
+      style={{
+        display: 'flex',
+      }}
+    >
+      <Card type={CardType.BELLS} value={2} />
+      <Card type={CardType.ACORNS} value={13} />
+      <Card type={CardType.HEARTS} value={7} />
+      <Card type={CardType.ACORNS} value={7} />
+    </div>
   </DefaultLayout>
 );
 
